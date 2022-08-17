@@ -16,40 +16,40 @@ def intro():
       feature = "Area"
     else:
       print("\nUnknown response, please try again.")
-      time.sleep(1)
+      
       os.system("clear")
       intro()
       
-    time.sleep(1)
+    
     os.system("clear")
     print("Welcome to Fraser High Schools official Perimeter and Area checker \n\nWhat shape would you like to calculate?")
     shape = input("   • Rectangle/Square \n   • Circle \n   • Triangle \n   • Paralellogram  \n\nPlease enter one: ").lower()
     if shape == "rectangle" or shape == "square" or shape == "rectangle square" or shape == "rectangle/square" or shape == "r" or shape == "s" or shape == "1":
-      time.sleep(1)
+      
       os.system("clear")
       rectangle_square()
     elif shape == "circle" or shape == "c" or shape == "2":
-      time.sleep(1)
+      
       os.system("clear")
       circle()
     elif shape == "triangle" or shape == "t" or shape == "3":
-      time.sleep(1)
+      
       os.system("clear")
       triangle()
     elif shape == "paralellogram" or shape == "p" or shape == "4":
-      time.sleep(1)
+      
       os.system("clear")
       paralellogram()
     else:
       print("\nUnknown response, please try again.")
-      time.sleep(1)
+      
       os.system("clear")
 
 
 def rectangle_square(): 
   print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
   confirm = input("You are wanting to know the {} of your Rectangle/Square.\n\n   Press enter to confirm\n   Enter 'x' to change your inputs\n   ".format(feature)).lower()
-  time.sleep(1)
+  
   os.system("clear")
   if confirm == "x":
     intro()
@@ -60,10 +60,10 @@ def rectangle_square():
       height = float(input("Please enter the Height of your Rectangle/Square: "))
     except ValueError:
       print("The value you entered either doesen't exist or is not a number. Please Try again")
-      time.sleep(3)
+      input("Press <enter> to continue")
       os.system("clear")
       rectangle_square()
-    time.sleep(1)
+    
     os.system("clear")
     print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
 
@@ -84,49 +84,36 @@ def rectangle_square():
 def circle():
   print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
   confirm = input("You are wanting to know the {} of your Circle.\n\n   Press enter to confirm\n   Enter 'x' to change your inputs\n   ".format(feature)).lower()
-  time.sleep(1)
   os.system("clear")
   if confirm == "x":
     intro()
   else:
     print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
-try:  
-      radius = float(input("Please enter the Radius of your Circle: "))
-    except ValueError:
-      print("The value you entered either doesen't exist or is not a number. Please Try again")
-      time.sleep(3)
-      os.system("clear")
-      circle()
-    time.sleep(1)
+  try:  
+    radius = float(input("Please enter the Radius of your Circle: "))
+  except ValueError:
+    print("The value you entered either doesen't exist or is not a number. Please Try again")
+    input("Press <enter> to continue")
     os.system("clear")
-    print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
-
-    ca1 = radius * radius
-    area = math.pi * ca1
-
-    perimeter = 2 * math.pi * radius
-
-    if feature == "Area":
-      input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu ".format(area))
-      os.system("clear")
-      intro()
-    elif feature == "Perimeter":
-      input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu ".format(perimeter))
-      os.system("clear")
-      intro()
-    else:
-      intro()
-
-def circle():
+    circle()
+    os.system("clear")
   print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
-  confirm = input("You are wanting to know the {} of your Circle.\n\n   Press enter to confirm\n   Enter 'x' to change your inputs\n   ".format(feature)).lower()
-  time.sleep(1)
-  os.system("clear")
-  if confirm == "x":
+
+  ca1 = radius * radius
+  area = math.pi * ca1
+
+  perimeter = 2 * math.pi * radius
+
+  if feature == "Area":
+    input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu ".format(area))
+    os.system("clear")
+    intro()
+  elif feature == "Perimeter":
+    input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu ".format(perimeter))
+    os.system("clear")
     intro()
   else:
-    print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
-
+    intro()
 
 def triangle():
   print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
