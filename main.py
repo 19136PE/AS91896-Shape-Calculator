@@ -15,7 +15,7 @@ def intro():
     elif feature == "a" or feature == "area" or feature == "area checker" or feature == "2":
       feature = "Area"
     else:
-      print("\nUnknown response, please try again.")
+      input("\nUnknown response, press <enter> to restart.")
       
       os.system("clear")
       intro()
@@ -44,8 +44,6 @@ def intro():
       print("\nUnknown response, please try again.")
       
       os.system("clear")
-
-
 def rectangle_square(): 
   print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
   confirm = input("You are wanting to know the {} of your Rectangle/Square.\n\n   Press enter to confirm\n   Enter 'x' to change your inputs\n   ".format(feature)).lower()
@@ -59,7 +57,7 @@ def rectangle_square():
       length = float(input("Please enter the Base length of your Rectangle/Square: "))
       height = float(input("Please enter the Height of your Rectangle/Square: "))
     except ValueError:
-      print("The value you entered either doesen't exist or is not a number. Please Try again")
+      print("\nThe value you entered either doesen't exist or is not a number. Please Try again")
       input("Press <enter> to continue")
       os.system("clear")
       rectangle_square()
@@ -92,7 +90,7 @@ def circle():
   try:  
     radius = float(input("Please enter the Radius of your Circle: "))
   except ValueError:
-    print("The value you entered either doesen't exist or is not a number. Please Try again")
+    print("\nThe value you entered either doesen't exist or is not a number. Please Try again")
     input("Press <enter> to continue")
     os.system("clear")
     circle()
@@ -121,8 +119,25 @@ def triangle():
   if confirm == "x":
     intro()
   else:
-    print("triangle")
-    input()
+    print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
+  try:  
+    base = float(input("Please enter the Base length of your Triangle: "))
+    yn = input("Do you know the Height Length of your Triangle (y/n): ").lower()
+    if yn == "y" or yn == "yes":
+      input = float(height("Please enter the Height of your triangle: "))
+    elif yn == "n" or yn == "no":
+      input = float(side1("Please enter another Side of your Triangle: "))
+      input = float(side2("Please enter the last Side of your Triangle: "))
+    else:
+      input("Invalid Response, Press <enter> to Continue: ")
+      triangle()
+  except ValueError:
+    print("\nThe value you entered either doesen't exist or is not a number. Please Try again")
+    input("Press <enter> to continue")
+    os.system("clear")
+    circle()
+    os.system("clear")
+  print("Welcome to Fraser High Schools official Perimeter and Area checker\n")
 
 
 def paralellogram():
@@ -133,6 +148,5 @@ def paralellogram():
   else:
     print("pawawellogwam")
     input()
-
 
 intro()
