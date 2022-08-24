@@ -158,11 +158,37 @@ def triangle():
 
 def paralellogram():
   print("Welcome to Fraser High School's official Perimeter and Area checker\n")
-  confirm = input("You are wanting to know the {} of your Paralellogram.\n\n   Press enter to confirm\n   Enter 'x' to change your inputs\n   ".format(feature)).lower()
+  confirm = input("You are wanting to know the {} of your Parallelogram.\n\n   Press enter to confirm\n   Enter 'x' to change your inputs\n   ".format(feature)).lower()
   if confirm == "x":
+    os.system("clear")
     intro()
   else:
-    print("pawawellogwam")
-    input()
+    os.system("clear")
+    print("Welcome to Fraser High School's official Perimeter and Area checker\n") 
+    try:  
+      base = float(input("Please enter the Base length of your Rectangle/Square: "))
+      side = float(input("Please enter the Height of your Rectangle/Square: "))
+    except ValueError:
+      print("\nThe value you entered either doesen't exist or is not a number. Please Try again")
+      input("Press <enter> to continue. ")
+      os.system("clear")
+      rectangle_square()
+    
+    os.system("clear")
+    print("Welcome to Fraser High School's official Perimeter and Area checker\n")
+
+    area = base * side
+    perimeter = base + base + side + side
+
+    if feature == "Area":
+      input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(area))
+      os.system("clear")
+      intro()
+    elif feature == "Perimeter":
+      input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(perimeter))
+      os.system("clear")
+      intro()
+    else:
+      intro()
 
 intro()
