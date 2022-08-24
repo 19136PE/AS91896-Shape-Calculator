@@ -1,19 +1,24 @@
 import os
 import math
-import time
-import turtle
 
 feature = "undefined"
 
 def intro():
   global feature
   while True:
+    os.system("clear")
     print("Welcome to Fraser High School's official Perimeter and Area checker \n\nWhat feature would you like to use today?")
-    feature = input("   • Perimeter checker \n   • Area checker \n\nPlease enter one: ").lower()
+    feature = input("   • Perimeter checker \n   • Area checker \n   • History \n   • Exit \n\nPlease enter one: ").lower()
     if feature == "p" or feature == "perimeter" or feature == "perimeter checker" or feature == "1":
       feature = "Perimeter"
     elif feature == "a" or feature == "area" or feature == "area checker" or feature == "2":
       feature = "Area"
+    elif feature == "h" or feature == "history" or feature == "3":
+      feature = "History"
+      history()
+    elif feature == "e" or feature == "exit" or feature == "4":
+      feature = "Exit"
+      stop_code()
     else:
       input("\nUnknown response, press <enter> to restart. ")
       
@@ -54,7 +59,7 @@ def rectangle_square():
   else:
     print("Welcome to Fraser High School's official Perimeter and Area checker\n")
     try:  
-      length = float(input("Please enter the Base length of your Rectangle/Square: "))
+      base = float(input("Please enter the Base length of your Rectangle/Square: "))
       height = float(input("Please enter the Height of your Rectangle/Square: "))
     except ValueError:
       print("\nThe value you entered either doesen't exist or is not a number. Please Try again")
@@ -65,15 +70,21 @@ def rectangle_square():
     os.system("clear")
     print("Welcome to Fraser High School's official Perimeter and Area checker\n")
 
-    area = length * height
-    perimeter = length + length + height + height
+    area = base * height
+    perimeter = base + base + height + height
 
     if feature == "Area":
       input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(area))
+      data = open("saved_data.txt", "a")
+      data.write("Rectangle: Base = {}, Height = {}, Area = {}\n".format(base, height, area))
+      data.close()
       os.system("clear")
       intro()
     elif feature == "Perimeter":
       input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(perimeter))
+      data = open("saved_data.txt", "a")
+      data.write("Rectangle: Base = {}, Height, = {} Area = {}\n".format(base, height, perimeter))
+      data.close()
       os.system("clear")
       intro()
     else:
@@ -104,10 +115,16 @@ def circle():
   
   if feature == "Area":
     input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu. ".format(area))
+    data = open("saved_data.txt", "a")
+    data.write("Circle: Radius = {}, Area = {}\n".format(radius, area))
+    data.close()
     os.system("clear")
     intro()
   elif feature == "Perimeter":
     input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu. ".format(perimeter))
+    data = open("saved_data.txt", "a")
+    data.write("Circle: Radius = {} Perimeter = {}\n".format(radius, perimeter))
+    data.close()
     os.system("clear")
     intro()
   else:
@@ -130,6 +147,9 @@ def triangle():
       os.system("clear")
       print("Welcome to Fraser High School's official Perimeter and Area checker\n")
       input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu. ".format(area))
+      data = open("saved_data.txt", "a")
+      data.write("Triangle: Base = {}, Height = {}, Area = {}\n".format(base, height, area))
+      data.close()
       os.system("clear")
       intro()
       
@@ -141,6 +161,9 @@ def triangle():
       os.system("clear")
       print("Welcome to Fraser High School's official Perimeter and Area checker\n")
       input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu. ".format(perimeter))
+      data = open("saved_data.txt", "a")
+      data.write("Triangle: Side1 = {}, Side2 = {}, Side3 = {}, Perimeter = {}\n".format(side1, side2, side3, perimeter))
+      data.close()
       os.system("clear")
       intro()
       
@@ -182,13 +205,48 @@ def paralellogram():
 
     if feature == "Area":
       input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(area))
+      data = open("saved_data.txt", "a")
+      data.write("Parallelogram: Base = {}, Side = {}, Area = {}\n".format(base, side, area))
+      data.close()
       os.system("clear")
       intro()
     elif feature == "Perimeter":
       input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(perimeter))
+      data = open("saved_data.txt", "a")
+      data.write("Parallelogram: Base = {}, Side = {}, Perimeter = {}\n".format(base, side, perimeter))
+      data.close()
       os.system("clear")
       intro()
     else:
       intro()
+
+def history():
+  data = open("saved_data.txt", "r")
+  data_list = data.readlines()
+  data_number_check = len(data_list)
+  data.close()
+  if data_number_check == 0:
+    os.system("clear")
+    print("Welcome to Fraser High School's official Perimeter and Area checker \n")
+    input("Sorry, There seems to be no history avalible\n\n\nPress <enter> to return to main menu. ")
+    intro()
+  else:
+    data_set = 0
+    for i in data_list:
+      os.system("clear")
+      print("Welcome to Fraser High School's official Perimeter and Area checker \n\nHistory:\n\n")
+      print(data_list[data_set])
+      data_set += 1
+    input("\nPress <enter> to continue. ")
+    intro()
+def stop_code():
+  print("ecit")
+  exit()
+  
+
+
+data = open("saved_data.txt", "w")
+data.write("")
+data.close()
 
 intro()
