@@ -1,2 +1,0 @@
-Parallelogram: Base = 23.0, Side = 54.0, Perimeter = 154.0
-Circle: Radius = 3.0, Area = 28.274333882308138
