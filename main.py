@@ -72,10 +72,15 @@ def rectangle_square():
       input("Press <enter> to continue. ")
       os.system("clear")
       rectangle_square()
-    
-    os.system("clear")
-    print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
 
+    if base <= 0 or height <= 0:
+      print("\nA number you input was less than or equal to 0, please make sure all your inputs are in the positives\n")
+      input("Press <enter> to continue")
+      rectangle_square()
+    else:
+      os.system("clear")
+      print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
+      
     area = base * height
     perimeter = base + base + height + height
 
@@ -89,13 +94,12 @@ def rectangle_square():
     elif feature == "Perimeter":
       input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(perimeter))
       data = open("saved_data.txt", "a")
-      data.write("Rectangle: Base = {}, Height, = {} Area = {}\n".format(base, height, perimeter))
+      data.write("Rectangle: Base = {}, Height, = {} Perimeter = {}\n".format(base, height, perimeter))
       data.close()
       os.system("clear")
       intro()
     else:
       intro()
-
 def circle():
   print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
   confirm = input("You are wanting to know the {} of your Circle.\n\n   Press enter to confirm\n   Enter 'x' to change your inputs\n   ".format(feature)).lower()
@@ -104,15 +108,20 @@ def circle():
     intro()
   else:
     print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
-  try:  
+  try:
     radius = float(input("Please enter the Radius of your Circle: "))
   except ValueError:
     print("\nThe value you entered either doesen't exist or is not a number. Please Try again")
     input("Press <enter> to continue. ")
     os.system("clear")
     circle()
-  os.system("clear")
-  print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
+  if radius <= 0:
+    print("\nA number you input was less than or equal to 0, please make sure all your inputs are in the positives\n")
+    input("Press <enter> to continue")
+    circle()
+  else:
+    os.system("clear")
+    print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
 
   ca1 = radius * radius
   area = math.pi * ca1
@@ -149,7 +158,15 @@ def triangle():
     if feature == "Area":
       base = float(input("Please enter the Base length of your Triangle: "))
       height = float(input("Please enter the Height of your triangle: "))
-      area = (base * height) / 2
+      
+      if base <= 0 or height <= 0:
+        print("\nA number you input was less than or equal to 0, please make sure all your inputs are in the positives\n")
+        input("Press <enter> to continue")
+        triangle()
+      else:
+      
+        area = (base * height) / 2
+      
       os.system("clear")
       print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
       input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu. ".format(area))
@@ -163,7 +180,14 @@ def triangle():
       side1 = float(input("Please enter the Length of Side 1: "))
       side2 = float(input("Please enter the Length of Side 2: "))
       side3 = float(input("Please enter the Length of Side 3: "))
-      perimeter = side1 + side2 + side3
+      if side1 <= 0 or side2 <= 0 or side3 <= 0:
+        print("\nA number you input was less than or equal to 0, please make sure all your inputs are in the positives\n")
+        input("Press <enter> to continue")
+        triangle()
+      else:
+      
+        perimeter = side1 + side2 + side3
+      
       os.system("clear")
       print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
       input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu. ".format(perimeter))
@@ -203,8 +227,13 @@ def paralellogram():
       os.system("clear")
       rectangle_square()
     
-    os.system("clear")
-    print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
+    if base <= 0 or side <= 0:
+      print("\nA number you input was less than or equal to 0, please make sure all your inputs are in the positives\n")
+      input("Press <enter> to continue")
+      paralellogram()
+    else:
+      os.system("clear")
+      print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
 
     area = base * side
     perimeter = base + base + side + side
@@ -272,5 +301,4 @@ def stop_code():
 data = open("saved_data.txt", "w")
 data.write("")
 data.close()
-
 intro()
