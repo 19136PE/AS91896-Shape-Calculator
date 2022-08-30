@@ -27,10 +27,9 @@ def intro():
       loop_cancel = True
     else:
       input("\nUnknown response, press <enter> to restart. ")
-      
       os.system("clear")
       intro()
-      
+  os.system("clear")
     
 def shape_select():
   os.system("clear")
