@@ -1,9 +1,12 @@
 import os
 import math
 import time
+import colorama
 
 feature = "undefined"
 loop_cancel = False
+
+#add rounding!!!
 
 def intro():
   global feature
@@ -85,14 +88,16 @@ def rectangle_square():
     perimeter = base + base + height + height
 
     if feature == "Area":
-      input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(area))
+      input("Your Area of your Shape is: {}".format(area))
+      input("This is calculated by base({}) * height({}) = {}\n\nPress <enter> to return to menu.  ".format(base, height, area))
       data = open("saved_data.txt", "a")
       data.write("Rectangle: Base = {}, Height = {}, Area = {}\n".format(base, height, area))
       data.close()
       os.system("clear")
       intro()
     elif feature == "Perimeter":
-      input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(perimeter))
+      print("Your Perimeter of your Shape is: {}".format(perimeter))
+      input("This is calculated by (base({}) * 2) + (height({}) * 2) = {}\n\nPress <enter> to return to menu.  ".format(base, height, perimeter))
       data = open("saved_data.txt", "a")
       data.write("Rectangle: Base = {}, Height, = {} Perimeter = {}\n".format(base, height, perimeter))
       data.close()
@@ -129,14 +134,16 @@ def circle():
   perimeter = 2 * math.pi * radius
   
   if feature == "Area":
-    input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu. ".format(area))
+    print("Your Area of your Shape is: {}".format(area))
+    input("This is calculated by (radius({}) * radius({})) * π = {}\n\nPress <enter> to return to menu.  ".format(radius, radius, area))
     data = open("saved_data.txt", "a")
     data.write("Circle: Radius = {}, Area = {}\n".format(radius, area))
     data.close()
     os.system("clear")
     intro()
   elif feature == "Perimeter":
-    input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu. ".format(perimeter))
+    print("Your Perimeter of your Shape is: {}".format(perimeter))
+    input("This is calculated by (radius({}) * π * 2) = {}\n\nPress <enter> to return to menu.  ".format(radius, perimeter))
     data = open("saved_data.txt", "a")
     data.write("Circle: Radius = {} Perimeter = {}\n".format(radius, perimeter))
     data.close()
@@ -169,7 +176,8 @@ def triangle():
       
       os.system("clear")
       print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
-      input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu. ".format(area))
+      print("Your Area of your Shape is: {}".format(area))
+      input("This is calculated by (base({}) * height({})) / 2 = {}\n\nPress <enter> to return to menu.  ".format(base, height, area))
       data = open("saved_data.txt", "a")
       data.write("Triangle: Base = {}, Height = {}, Area = {}\n".format(base, height, area))
       data.close()
@@ -190,7 +198,8 @@ def triangle():
       
       os.system("clear")
       print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
-      input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu. ".format(perimeter))
+      print("Your Perimeter of your Shape is: {}".format(perimeter))
+      input("This is calculated by side1({}) + side2({}) + side3({}) = {}\n\nPress <enter> to return to menu.  ".format(side1, side2, side3, perimeter))
       data = open("saved_data.txt", "a")
       data.write("Triangle: Side1 = {}, Side2 = {}, Side3 = {}, Perimeter = {}\n".format(side1, side2, side3, perimeter))
       data.close()
@@ -204,10 +213,7 @@ def triangle():
     print("\nThe value you entered either doesen't exist or is not a number. Please Try again")
     input("Press <enter> to continue. ")
     os.system("clear")
-    circle()
-    os.system("clear")
-  print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
-
+    triangle()
 
 def paralellogram():
   print("Welcome to Fraser High School's official Perimeter and Area checker!\n")
@@ -239,14 +245,16 @@ def paralellogram():
     perimeter = base + base + side + side
 
     if feature == "Area":
-      input("Your Area of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(area))
+      print("Your Area of your Shape is: {}".format(area))
+      input("This is calculated by base({}) * side({}) = {}\n\nPress <enter> to return to menu.  ".format(base, side, area))
       data = open("saved_data.txt", "a")
       data.write("Parallelogram: Base = {}, Side = {}, Area = {}\n".format(base, side, area))
       data.close()
       os.system("clear")
       intro()
     elif feature == "Perimeter":
-      input("Your Perimeter of your Shape is: {}\n\nPress <enter> to return to menu.  ".format(perimeter))
+      print("Your Perimeter of your Shape is: {}".format(perimeter))
+      input("This is calculated by (base({}) * 2) + (side({}) * 2) = {}\n\nPress <enter> to return to menu.  ".format(base, side, perimeter))
       data = open("saved_data.txt", "a")
       data.write("Parallelogram: Base = {}, Side = {}, Perimeter = {}\n".format(base, side, perimeter))
       data.close()
