@@ -5,7 +5,7 @@ import math
 #for exiting code in stop_code()
 import time
 #for text coloring in welcome messages
-from colorama import Fore, Back, Style
+from colorama import Style
 
 #feature collects data input from user for what they want to do
 feature = "undefined"
@@ -56,7 +56,7 @@ def shape_select():
   #welcomes
   print(Style.DIM + "Welcome to Fraser High School's official Perimeter and Area checker!")
   print(Style.NORMAL + "\nWhat shape would you like to calculate?")
-  shape = input("   • Rectangle/Square \n   • Circle \n   • Triangle \n   • Paralellogram  \n\nPlease enter one: ").lower()
+  shape = input("   • Rectangle/Square \n   • Circle \n   • Triangle \n   • parallelogram  \n\nPlease enter one: ").lower()
   #if rectangle/square, clear screen, send to rectangle_square()
   if shape == "rectangle" or shape == "square" or shape == "rectangle square" or shape == "rectangle/square" or shape == "r" or shape == "s" or shape == "1":
     os.system("clear")
@@ -69,10 +69,10 @@ def shape_select():
   elif shape == "triangle" or shape == "t" or shape == "3":
     os.system("clear")
     triangle()
-  #if paralellogram, clear screen, send to paralellogram()
-  elif shape == "paralellogram" or shape == "p" or shape == "4":
+  #if parallelogram, clear screen, send to parallelogram()
+  elif shape == "parallelogram" or shape == "p" or shape == "4":
     os.system("clear")
-    paralellogram()
+    parallelogram()
   #if anything else, error and send back to intro()
   else:
     input("\nUnknown response, press <enter> to restart. ")
@@ -209,7 +209,7 @@ def circle():
   #checks what feature user is using
   if feature == "Area":
     #tells user rounded answer
-    print(style.NORMAL + "Your Area of your Shape is: {} (rounded)".format(roundarea))
+    print(Style.NORMAL + "Your Area of your Shape is: {} (rounded)".format(roundarea))
     #tells user how to calculate with full answer
     input("This is calculated by (radius({}) * radius({})) * π = {}\n\nPress <enter> to return to menu.  ".format(radius, radius, area))
     #save data to saved_data.txt
@@ -291,7 +291,7 @@ def triangle():
     #checks what feature user is using
     elif feature == "Perimeter":
       #asks for user input regarding triangle side lengths
-      side1 = float(input("Please enter the Length of Side 1: "))
+      side1 = float(input(Style.NORMAL + "Please enter the Length of Side 1: "))
       side2 = float(input("Please enter the Length of Side 2: "))
       side3 = float(input("Please enter the Length of Side 3: "))
       
@@ -333,7 +333,7 @@ def triangle():
     os.system("clear")
     triangle()
 
-def paralellogram():
+def parallelogram():
   #welcomes
   print(Style.DIM + "Welcome to Fraser High School's official Perimeter and Area checker!\n")
   #confirms users input
@@ -352,9 +352,9 @@ def paralellogram():
     #begins a value error try: except: to create a invalid input
     try:  
       #asks for user input regarding side lengths
-      base = float(input(Style.NORMAL + "Please enter the Base length of your Rectangle/Square: "))
-      side = float(input("Please enter the Height of your Rectangle/Square: "))
-    #if value error, send error and send user to confimation at start of paralellogram()
+      base = float(input(Style.NORMAL + "Please enter the Base length of your Parallelogram: "))
+      side = float(input("Please enter the Height of your Parallelogram: "))
+    #if value error, send error and send user to confimation at start of parallelogram()
     except ValueError:
       print("\nThe value you entered either doesen't exist or is not a number. Please Try again")
       input("Press <enter> to continue. ")
@@ -366,7 +366,7 @@ def paralellogram():
     if base <= 0 or side <= 0:
       print("\nA number you input was less than or equal to 0, please make sure all your inputs are in the positives\n")
       input("Press <enter> to continue")
-      paralellogram()
+      parallelogram()
     #if all numbers in positives, continue
     else:
       #clear screen
